@@ -1,0 +1,1534 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>楚盒天下回收注册</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --primary: #17a0ee;
+      --primary-dark: #1287c8;
+      --secondary: #17d5c9;
+      --success: #2ecc71;
+      --warning: #f39c12;
+      --danger: #e74c3c;
+      --light: #f8f9fa;
+      --dark: #343a40;
+      --gray: #6c757d;
+      --light-gray: #e9ecef;
+      --border-radius: 12px;
+      --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      --transition: all 0.3s ease;
+      --gradient-primary: linear-gradient(135deg, #17a0ee 0%, #17d5c9 100%);
+      --glow-blue: 0 0 15px rgba(23, 160, 238, 0.8);
+      --glow-green: 0 0 15px rgba(43, 204, 113, 0.8);
+      --glow-purple: 0 0 15px rgba(155, 89, 182, 0.8);
+      --glow-red: 0 0 15px rgba(231, 76, 60, 0.8);
+    }
+
+    body {
+      font-family: 'Noto Sans SC', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      color: var(--dark);
+      line-height: 1.6;
+      min-height: 100vh;
+      padding: 15px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 500px;
+      background: white;
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+      overflow: hidden;
+      padding: 15px 25px 25px;
+      position: relative;
+      z-index: 10;
+      animation: fadeIn 0.8s ease-out;
+      margin-bottom: 70px;
+    }
+
+    .announcement-bar {
+      background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+      color: white;
+      padding: 10px 15px;
+      border-radius: 8px;
+      margin: 15px 0 20px;
+      font-weight: 500;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+    }
+    
+    .announcement-content {
+      display: flex;
+      align-items: center;
+      white-space: nowrap;
+      animation: scrollText 20s linear infinite;
+    }
+    
+    .announcement-icon {
+      margin-right: 12px;
+      font-size: 1.2rem;
+      animation: pulse 1.5s infinite;
+    }
+    
+    .announcement-text {
+      font-weight: 600;
+      font-size: 15px;
+    }
+    
+    .invite-code {
+      background: rgba(255,255,255,0.3);
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin: 0 5px;
+      font-weight: 700;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 15px;
+      padding: 10px 0;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 10px;
+    }
+
+    .logo i {
+      font-size: 2.5rem;
+      color: var(--success);
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .logo h1 {
+      font-size: 2.2rem;
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .slogan {
+      font-size: 1.1rem;
+      color: var(--gray);
+      font-weight: 500;
+      position: relative;
+      padding-bottom: 10px;
+    }
+
+    .slogan::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background: var(--gradient-primary);
+      border-radius: 2px;
+    }
+
+    .form-container {
+      margin-bottom: 25px;
+    }
+
+    .form-item {
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    .input-group {
+      display: flex;
+      align-items: center;
+      background: var(--light);
+      border-radius: var(--border-radius);
+      padding: 0 15px;
+      border: 1px solid var(--light-gray);
+      transition: var(--transition);
+      box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+
+    .input-group:hover {
+      border-color: var(--primary);
+    }
+
+    .input-group i {
+      color: var(--gray);
+      font-size: 1.2rem;
+      margin-right: 10px;
+    }
+
+    .form-item input {
+      width: 100%;
+      height: 50px;
+      border: none;
+      background: transparent;
+      font-size: 16px;
+      outline: none;
+      padding: 0;
+    }
+
+    .verification-code {
+      display: flex;
+      gap: 10px;
+    }
+
+    .verification-code .input-group {
+      flex: 1;
+    }
+
+    #getCodeBtn {
+      width: 130px;
+      height: 50px;
+      background: var(--light);
+      border: 1px solid var(--light-gray);
+      border-radius: var(--border-radius);
+      color: var(--primary);
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    #getCodeBtn:hover {
+      background: var(--primary);
+      color: white;
+    }
+
+    #getCodeBtn:disabled {
+      background: var(--light-gray);
+      color: var(--gray);
+      cursor: not-allowed;
+    }
+
+    .agreement {
+      display: flex;
+      align-items: center;
+      margin: 25px 0;
+      font-size: 14px;
+      color: var(--gray);
+    }
+
+    .agreement input {
+      margin-right: 10px;
+    }
+
+    .agreement a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .agreement a:hover {
+      text-decoration: underline;
+    }
+
+    .register-btn {
+      width: 100%;
+      height: 55px;
+      background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+      border: none;
+      border-radius: var(--border-radius);
+      color: white;
+      font-size: 18px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      box-shadow: 0 4px 10px rgba(79, 172, 254, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .register-btn::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+      transition: 0.5s;
+    }
+
+    .register-btn:hover::before {
+      left: 100%;
+    }
+
+    .register-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 7px 15px rgba(79, 172, 254, 0.4);
+    }
+
+    .action-buttons {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+      margin: 30px 0;
+    }
+
+    .action-btn {
+      height: 90px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border-radius: var(--border-radius);
+      text-decoration: none;
+      color: white;
+      font-weight: 600;
+      transition: var(--transition);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      padding: 10px;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .action-btn::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.1);
+      opacity: 0;
+      transition: var(--transition);
+      z-index: -1;
+    }
+
+    .action-btn:hover::before {
+      opacity: 1;
+    }
+
+    .action-btn i {
+      font-size: 1.8rem;
+      margin-bottom: 8px;
+    }
+
+    .action-btn span {
+      font-size: 14px;
+    }
+
+    .download-btn {
+      background: linear-gradient(135deg, #0bd850 0%, #0ba360 100%);
+    }
+
+    .login-btn {
+      background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    }
+
+    .tutorial-btn {
+      background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+    }
+
+    .earn-btn {
+      background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);
+    }
+
+    .action-btn:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .beian-info {
+      text-align: center;
+      font-size: 12px;
+      color: var(--gray);
+      padding: 15px 0 5px;
+      border-top: 1px solid var(--light-gray);
+    }
+
+    .download-popup {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .download-container {
+      width: 90%;
+      max-width: 350px;
+      background-color: #fff;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+      animation: popIn 0.4s ease-out;
+    }
+
+    .download-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      background: var(--gradient-primary);
+      color: white;
+      font-weight: 600;
+      font-size: 18px;
+    }
+
+    .download-content {
+      padding: 25px;
+      text-align: center;
+    }
+
+    .app-info {
+      margin-bottom: 25px;
+    }
+
+    .app-icon {
+      width: 80px;
+      height: 80px;
+      background: var(--gradient-primary);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 15px;
+      box-shadow: 0 5px 15px rgba(23, 160, 238, 0.3);
+    }
+
+    .app-icon i {
+      font-size: 40px;
+      color: white;
+    }
+
+    .app-info h3 {
+      font-size: 24px;
+      color: var(--dark);
+      margin-bottom: 5px;
+    }
+
+    .app-info p {
+      color: var(--gray);
+      font-size: 14px;
+    }
+
+    .download-btns {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    .download-btn {
+      height: 55px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      color: white;
+      font-weight: 600;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .android-btn {
+      background: linear-gradient(135deg, #0bd850 0%, #0ba360 100%);
+    }
+
+    .ios-btn {
+      background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    }
+
+    .download-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .download-btn svg {
+      margin-right: 10px;
+    }
+
+    .loading-popup {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 1001;
+    }
+
+    .loading-container {
+      background-color: white;
+      padding: 30px;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    .loading-spinner {
+      width: 50px;
+      height: 50px;
+      margin: 0 auto 20px;
+      border: 5px solid rgba(79, 172, 254, 0.2);
+      border-top: 5px solid #4facfe;
+      border-radius: 50%;
+      animation: rotate 1s linear infinite;
+    }
+
+    @keyframes rotate {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    .loading-container p {
+      font-weight: 600;
+      color: var(--dark);
+    }
+
+    /* 悬浮按钮 - 增强版 */
+    .float-buttons {
+      position: fixed;
+      right: 20px;
+      bottom: 180px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      z-index: 100;
+    }
+
+    .float-btn {
+      width: 65px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border-radius: 15px;
+      color: white;
+      font-weight: 500;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
+      animation: float 3s ease-in-out infinite;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      padding: 12px 8px;
+      text-align: center;
+      z-index: 100;
+    }
+
+    .float-btn i {
+      font-size: 1.4rem;
+      margin-bottom: 8px;
+    }
+
+    .float-btn span {
+      font-size: 12px;
+      display: block;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    .qq-group {
+      background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+      animation-delay: 0.1s;
+      box-shadow: var(--glow-blue);
+    }
+
+    .red-pack {
+      background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+      animation-delay: 0.2s;
+      box-shadow: var(--glow-red);
+    }
+    
+    .video-tutorial {
+      background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);
+      animation-delay: 0.3s;
+      box-shadow: var(--glow-purple);
+    }
+    
+    .official-group {
+      background: linear-gradient(135deg, #0bd850 0%, #0ba360 100%);
+      animation-delay: 0.4s;
+      box-shadow: var(--glow-green);
+    }
+
+    .float-btn:hover {
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    /* 炫光效果 */
+    .float-btn::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: rgba(255, 255, 255, 0.2);
+      transform: rotate(45deg);
+      animation: shine 3s infinite;
+      z-index: -1;
+    }
+
+    /* 底部菜单栏 */
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 60px;
+      background-color: white;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+      z-index: 100;
+    }
+
+    .nav-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      color: var(--gray);
+      font-size: 12px;
+      transition: var(--transition);
+      padding: 5px;
+      flex: 1;
+    }
+
+    .nav-item i {
+      font-size: 20px;
+      margin-bottom: 3px;
+    }
+
+    .nav-item.active {
+      color: var(--primary);
+    }
+
+    .nav-item:hover {
+      color: var(--primary);
+      transform: translateY(-3px);
+    }
+
+    /* 页面容器 */
+    .page-container {
+      width: 100%;
+      height: calc(100vh - 60px);
+      position: fixed;
+      top: 0;
+      left: 0;
+      display: none;
+      background: white;
+      z-index: 50;
+    }
+
+    #scanPage {
+      display: none;
+    }
+
+    #tutorialPage {
+      display: none;
+    }
+
+    #earnPage {
+      display: none;
+    }
+
+    .page-header {
+      height: 50px;
+      background: var(--gradient-primary);
+      color: white;
+      display: flex;
+      align-items: center;
+      padding: 0 15px;
+      position: relative;
+    }
+
+    .page-title {
+      font-size: 18px;
+      font-weight: 600;
+      text-align: center;
+      flex: 1;
+    }
+
+    .close-page {
+      position: absolute;
+      right: 15px;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    .page-content {
+      height: calc(100% - 50px);
+      width: 100%;
+      overflow: auto;
+    }
+
+    .page-iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* 视频弹窗 - 优化手机适配 */
+    .video-popup {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.9);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 2000;
+    }
+
+    .video-container {
+      width: 95%;
+      max-width: 800px;
+      background: #000;
+      border-radius: 10px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .video-header {
+      padding: 15px;
+      background: #333;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .video-title {
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .close-video {
+      font-size: 24px;
+      cursor: pointer;
+      color: white;
+    }
+
+    .video-content {
+      position: relative;
+      padding-top: 56.25%; /* 16:9 Aspect Ratio */
+    }
+
+    .video-iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* 加载指示器 */
+    .iframe-loader {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+
+    .loader-spinner {
+      width: 40px;
+      height: 40px;
+      border: 4px solid rgba(79, 172, 254, 0.2);
+      border-top: 4px solid #4facfe;
+      border-radius: 50%;
+      animation: rotate 1s linear infinite;
+      margin: 0 auto 15px;
+    }
+
+    .loader-text {
+      color: var(--gray);
+      font-size: 14px;
+    }
+
+    /* 安装教学按钮 */
+    .tutorial-btn-container {
+      margin-top: 15px;
+    }
+
+    .tutorial-video-btn {
+      width: 100%;
+      height: 55px;
+      background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);
+      border: none;
+      border-radius: var(--border-radius);
+      color: white;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      box-shadow: 0 4px 10px rgba(161, 140, 209, 0.3);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .tutorial-video-btn::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+      transition: 0.5s;
+    }
+
+    .tutorial-video-btn:hover::before {
+      left: 100%;
+    }
+
+    .tutorial-video-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 7px 15px rgba(161, 140, 209, 0.4);
+    }
+
+    /* 动画效果 */
+    @keyframes float {
+      0% {
+        transform: translateY(0px);
+      }
+
+      50% {
+        transform: translateY(-8px);
+      }
+
+      100% {
+        transform: translateY(0px);
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes popIn {
+      0% {
+        transform: scale(0.8);
+        opacity: 0;
+      }
+
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+    
+    @keyframes scrollText {
+      0% {
+        transform: translateX(100%);
+      }
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+    
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+    
+    @keyframes shine {
+      0% {
+        transform: rotate(45deg) translateX(-200%);
+      }
+      50% {
+        transform: rotate(45deg) translateX(-100%);
+      }
+      100% {
+        transform: rotate(45deg) translateX(100%);
+      }
+    }
+
+    .watermark {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"><path fill="rgba(79, 172, 254, 0.03)" d="M50,50 C60,40 80,40 90,50 C100,60 100,80 90,90 C80,100 60,100 50,90 C40,80 40,60 50,50 Z M150,150 C160,140 180,140 190,150 C200,160 200,180 190,190 C180,200 160,200 150,190 C140,180 140,160 150,150 Z"/></svg>');
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    /* 响应式设计 */
+    @media (max-width: 576px) {
+      .container {
+        padding: 15px;
+      }
+      
+      .announcement-bar {
+        padding: 8px 12px;
+        margin: 10px 0 15px;
+      }
+      
+      .announcement-text {
+        font-size: 13px;
+      }
+      
+      .invite-code {
+        padding: 1px 6px;
+      }
+
+      .action-buttons {
+        gap: 10px;
+      }
+
+      .action-btn {
+        height: 80px;
+        font-size: 14px;
+      }
+
+      .action-btn i {
+        font-size: 1.5rem;
+      }
+
+      .verification-code {
+        flex-direction: column;
+      }
+
+      #getCodeBtn {
+        width: 100%;
+        margin-top: 10px;
+      }
+
+      .float-buttons {
+        right: 10px;
+        bottom: 150px;
+        gap: 15px;
+      }
+
+      .float-btn {
+        width: 60px;
+        padding: 10px 6px;
+      }
+      
+      .float-btn i {
+        font-size: 1.4rem;
+      }
+      
+      .float-btn span {
+        font-size: 11px;
+      }
+      
+      .bottom-nav {
+        height: 55px;
+      }
+      
+      .nav-item i {
+        font-size: 18px;
+      }
+      
+      .video-container {
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+        max-width: none;
+      }
+      
+      .video-content {
+        height: calc(100vh - 60px);
+        padding-top: 0;
+      }
+      
+      .video-iframe {
+        height: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="watermark"></div>
+  
+  <!-- 主注册页面 -->
+  <div class="container" id="registerPage">
+    <div class="header">
+      <div class="logo">
+        <i class="fas fa-recycle"></i>
+        <h1>楚盒天下回收</h1>
+      </div>
+      <p class="slogan">绿色回收，环保生活</p>
+    </div>
+    
+    <!-- 公告栏 -->
+    <div class="announcement-bar">
+      <div class="announcement-content">
+        <i class="fas fa-bullhorn announcement-icon"></i>
+        <div class="announcement-text">
+          官方邀请码：<span class="invite-code">75627</span>，新手务必先查看软件安装教学和使用教学，软件免费使用，提现秒到账
+        </div>
+      </div>
+    </div>
+
+    <div class="form-container">
+      <div class="form-item">
+        <div class="input-group">
+          <i class="fas fa-mobile-alt"></i>
+          <input type="tel" id="phone" placeholder="请输入手机号" maxlength="11" />
+        </div>
+      </div>
+      <div class="form-item verification-code">
+        <div class="input-group">
+          <i class="fas fa-sms"></i>
+          <input type="text" id="code" placeholder="请输入验证码" maxlength="6" />
+        </div>
+        <button id="getCodeBtn" onclick="getVerificationCode()">获取验证码</button>
+      </div>
+      <input type="hidden" id="inviteCode" value="75627" />
+      <div class="agreement">
+        <input type="checkbox" id="agree" checked />
+        <label for="agree">我已阅读并同意
+          <a href="javascript:void(0)" onclick="showAgreement()" class="app_text">《用户协议》</a>
+          和
+          <a class="app_text" href="javascript:void(0)" onclick="showPrivacy()">《隐私政策》</a>
+        </label>
+      </div>
+      <div class="form-item">
+        <button class="register-btn" onclick="register()">立即注册</button>
+      </div>
+    </div>
+
+    <!-- 田字型功能按钮区域 -->
+    <div class="action-buttons">
+      <a href="https://pan.xunlei.com/s/VOWHXooCx-fBQWxV42s2dieUA1?pwd=8h4e#" target="_blank" class="action-btn download-btn">
+        <i class="fas fa-download"></i>
+        <span>楚盒扫码软件</span>
+      </a>
+      <a href="https://www.wdjwh.com/invite.html?code=UTuiMj" target="_blank" class="action-btn login-btn">
+        <i class="fas fa-sign-in-alt"></i>
+        <span>盒天下回收软件</span>
+      </a>
+      <a href="javascript:void(0)" onclick="openTutorialPage()" class="action-btn tutorial-btn">
+        <i class="fas fa-book"></i>
+        <span>扫码使用教学</span>
+      </a>
+      <a href="javascript:void(0)" onclick="openEarnPage()" class="action-btn earn-btn">
+        <i class="fas fa-ad"></i>
+        <span>变现合集</span>
+      </a>
+    </div>
+
+    <div class="beian-info">
+      服务号关注：烟盒扫码回收
+    </div>
+  </div>
+  
+  <!-- 扫码回收页面 - 已移除内嵌 -->
+  
+  <!-- 使用教学页面 -->
+  <div class="page-container" id="tutorialPage">
+    <div class="page-header">
+      <div class="page-title">扫码使用教学</div>
+      <div class="close-page" onclick="closePage('tutorialPage')">&times;</div>
+    </div>
+    <div class="page-content">
+      <iframe src="http://yanhesaoma.ysepan.com/" class="page-iframe" id="tutorialFrame"></iframe>
+    </div>
+  </div>
+  
+  <!-- 变现大全页面 -->
+  <div class="page-container" id="earnPage">
+    <div class="page-header">
+      <div class="page-title">变现大全</div>
+      <div class="close-page" onclick="closePage('earnPage')">&times;</div>
+    </div>
+    <div class="page-content">
+      <iframe src="https://screenapp.io/app/#/shared/fKWC2319RN" class="page-iframe" id="earnFrame"></iframe>
+    </div>
+  </div>
+
+  <!-- 底部菜单栏 -->
+  <div class="bottom-nav">
+    <a href="javascript:void(0)" class="nav-item active" onclick="showPage('registerPage')">
+      <i class="fas fa-user-plus"></i>
+      <span>注册</span>
+    </a>
+    <a href="https://h5.chznhs.cn/#/" target="_blank" class="nav-item">
+      <i class="fas fa-qrcode"></i>
+      <span>扫码回收</span>
+    </a>
+    <a href="javascript:void(0)" class="nav-item" onclick="showPage('tutorialPage')">
+      <i class="fas fa-graduation-cap"></i>
+      <span>扫码教学</span>
+    </a>
+    <a href="javascript:void(0)" class="nav-item" onclick="showPage('earnPage')">
+      <i class="fas fa-money-bill-wave"></i>
+      <span>安装教学</span>
+    </a>
+  </div>
+
+  <!-- 悬浮按钮区域 - 增强版 -->
+  <div class="float-buttons">
+    <div class="float-btn video-tutorial" onclick="openVideoTutorial()">
+      <i class="fas fa-film"></i>
+      <span>软件安装教学</span>
+    </div>
+    <div class="float-btn qq-group" onclick="window.open('https://qm.qq.com/q/pQoXB43oKO', '_blank')">
+      <i class="fab fa-qq"></i>
+      <span>回收通知群</span>
+    </div>
+    <div class="float-btn red-pack" onclick="window.open('https://kzurl05.cn/7G96AS', '_blank')">
+      <i class="fas fa-gift"></i>
+      <span>省钱专区</span>
+    </div>
+    <div class="float-btn official-group" onclick="window.open('https://qm.qq.com/q/Tlf1zXoXcq', '_blank')">
+      <i class="fas fa-users"></i>
+      <span>楚盒教学群</span>
+    </div>
+  </div>
+
+  <!-- 下载APP弹窗 -->
+  <div id="downloadPopup" class="download-popup">
+    <div class="download-container">
+      <div class="download-header">
+        <span>注册成功,下载软件扫码变现</span>
+        <span class="close-btn" onclick="closeDownloadPopup()">×</span>
+      </div>
+      <div class="download-content">
+        <div class="app-info">
+          <div class="app-icon">
+            <i class="fas fa-recycle"></i>
+          </div>
+          <h3>楚盒天下回收</h3>
+          <p>烟盒瓶盖扫码回收，让生活更环保</p>
+        </div>
+        <div class="download-btns">
+          <a href="https://pan.xunlei.com/s/VOWHXooCx-fBQWxV42s2dieUA1?pwd=8h4e#" target="_blank" class="download-btn android-btn" id="androidBtn">
+            <svg viewBox="0 0 1024 1024" width="18" height="18" style="margin-right: 5px;">
+              <path
+                d="M270.933333 341.333333h482.133334v384c0 25.6-17.066667 42.666667-42.666667 42.666667h-42.666667v128c0 25.6-17.066667 42.666667-42.666666 42.666667s-42.666667-17.066667-42.666667-42.666667v-128h-85.33333v128c0 25.6-17.066667 42.666667-42.666667 42.666667s-42.666667-17.066667-42.666667-42.666667v-128H341.333333c-25.6 0-42.666667-17.066667-42.666666-42.666667V341.333333z m-85.333333z m-85.333333 0c-25.6 0-42.666667 17.066667-42.666667 42.666667 42.66666742.666667 42.666667s42.666667-17.066667 42.666667-42.666667V384c0-25.6-17.066667-42.666667-42.666667z m652.8 0c-25.6 0-42.666667 17.066667-42.666667 42.666667v256c0 25.6 17.066667 42.666667 42.666667 42.66667s 42.66667s42.666667-17.066667 42.666667-42.666667V384c0-25.6-17.066667-42.666667-42.666667-42.666667zM512 85.33333c-8.533333 0-25.6 0-34.133333 8.533334L375.466667 204.8h273.066666L-102.4-110.933333C537.6 85.333333 520.533333 85.333333 512 85.333333z m119.466667170.666667H392.533333c-17.066667 0-34.133333-8.533333-42.666666-25.6L-51.2-93.866667c-8.8.533333-17.066667-8.533333-34.133333 0-51.2 8.533333-17.066667 25.6-25.6 42.666666-25.6H341.333334C17.066667 0 34.133333 8.533333 42.666666 25.6 8.533333 17.066667 8.533333 34.133333 0 51.2L674.133333 230.4c-8.53333 17.066667-25.6 25.6-42.666666 25.6z"
+                fill="#ffffff"></path>
+            </svg>
+            下载楚盒回收软件1️⃣
+          </a>
+          <a href="https://www.wdjwh.com/invite.html?code=UTuiMj" target="_blank" class="download-btn ios-btn" id="iosBtn">
+            <svg viewBox="0 0 1024 1024" width="18" height="18" style="margin-right: 5px;">
+              <path
+                d="M747.4 535.7c-0.4-68.2 30.5-119.6 92.9-157.5-34.9-50.8-87.7-77.5-149.6-82.8-62.9-5.4-122.2 36.8-153.6 36.8-31.6 0-80.9-35.7-133.1-34.7-68.8 1.1-132.5 39.4-168.1 99.6C139.5 569 186.4 802.1 261 904c37.4 51 81.6 108.8 139.9 106.7 55.9-2.1 77.1-36.1 7 144.7-36.7 67.5 0 86.6 36.7 146.4 35.7 60.4-1.1 98.6-55.1 135.3-106.1 42.8-63.1 60.3-124.1 61.3-127.1-1.4-0.6-117.7-46.4-118.9-183.8zM633.1 179.1c33.1-40.2 55.4-95.8 49.3-151.6-47.8 1.9-105.8 31.7-140.2 71.4-30.8 35.7-57.8 92.9-50.6 147.7 53.3 4.3107.9-27.4 141.5-67.5Z"
+                fill="#ffffff"></path>
+            </svg>
+            注册盒天下回收软件2️⃣
+          </a>
+        </div>
+        <div class="tutorial-btn-container">
+          <button class="tutorial-video-btn" onclick="openVideoTutorial()">
+            <i class="fas fa-film"></i>
+            查看安装教学视频
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 添加 Loading 弹窗 -->
+  <div id="loadingPopup" class="loading-popup">
+    <div class="loading-container">
+      <div class="loading-spinner"></div>
+      <p>请求处理中...</p>
+    </div>
+  </div>
+  
+  <!-- 视频教学弹窗 - 优化手机适配 -->
+  <div id="videoPopup" class="video-popup">
+    <div class="video-container">
+      <div class="video-header">
+        <div class="video-title">扫码回收使用教学</div>
+        <div class="close-video" onclick="closeVideoPopup()">&times;</div>
+      </div>
+      <div class="video-content">
+        <iframe src="https://screenapp.io/app/#/shared/fKWC2319RN" class="video-iframe"></iframe>
+      </div>
+    </div>
+  </div>
+  
+  <!-- 安装教学弹窗 -->
+  <div id="tutorialWebPopup" class="video-popup">
+    <div class="video-container">
+      <div class="video-header">
+        <div class="video-title">安装使用教学</div>
+        <div class="close-video" onclick="closeTutorialWebPopup()">&times;</div>
+      </div>
+      <div class="video-content">
+        <iframe src="https://screenapp.io/app/#/shared/fKWC2319RN" class="video-iframe" id="tutorialWebFrame"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // 常量定义
+    const API_DOMAIN = 'https://api.chznhs.cn';
+    const AUTH_TOKEN = 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMC4wLjAuMC9hcGkvdjEvdXNlci9zbXMvbG9naW4iLCJpYXQiOjE3NTI5Mzg1NTQsImV4cCI6MTc1OTQxODU1NCwibmJmIjoxNzUyOTM4NTU0LCJqdGkiOiJaOUF4dlNJTWk4STk4b1R1Iiwic3ViIjoiNjAyMzA2IiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.Lt8RQcVaaez4-eaaGsCd5_dN4T_utYNq46YtUfbWWp8';
+    const INVITE_CODE = '75627';
+
+    let countdown = 60;
+    let timer = null;
+
+    // 页面加载时初始化
+    window.onload = function() {
+      // 检查是否注册成功需要弹出下载窗口
+      checkRegistrationStatus();
+      
+      // 默认显示注册页
+      showPage('registerPage');
+      
+      // 设置悬浮按钮动画
+      setupFloatButtonsAnimation();
+    };
+
+    // 设置悬浮按钮动画
+    function setupFloatButtonsAnimation() {
+      const floatButtons = document.querySelectorAll('.float-btn');
+      floatButtons.forEach((btn, index) => {
+        btn.style.animationDelay = `${index * 0.2}s`;
+      });
+    }
+
+    // 验证手机号格式
+    function isMobile(mobile) {
+      const reg = /^1[3-9]\d{9}$/;
+      if (!mobile) {
+        alert('请输入手机号');
+        return false;
+      }
+      if (!reg.test(mobile)) {
+        alert('请输入正确的手机号');
+        return false;
+      }
+      return true;
+    }
+
+    // 获取短信验证码
+    function getVerificationCode() {
+      const mobile = document.getElementById('phone').value;
+      if (!isMobile(mobile)) {
+        return;
+      }
+
+      const getCodeBtn = document.getElementById('getCodeBtn');
+      if (getCodeBtn.disabled) return;
+
+      showLoading();
+
+      // 发送短信验证码请求
+      fetch(`${API_DOMAIN}/api/v1/user/send/sms?phone=${mobile}`, {
+        method: 'GET',
+        headers: {
+          'Authorization': AUTH_TOKEN,
+          'Content-Type': 'application/json'
+        }
+      })
+        .then(response => {
+          hideLoading();
+          if (response.ok) {
+            return response.json();
+          }
+          throw new Error('网络响应异常');
+        })
+        .then(res => {
+          if (res.status === "success" && res.code === 200) {
+            startCountdown();
+            alert('验证码发送成功');
+          } else {
+            alert(res.message || '验证码发送失败');
+          }
+        })
+        .catch(error => {
+          hideLoading();
+          console.error('错误：', error);
+          alert('验证码发送失败，请稍后重试');
+        });
+    }
+
+    // 倒计时
+    function startCountdown() {
+      const getCodeBtn = document.getElementById('getCodeBtn');
+      getCodeBtn.disabled = true;
+      countdown = 60;
+      getCodeBtn.innerText = `重新获取(${countdown}s)`;
+
+      timer = setInterval(() => {
+        countdown--;
+        getCodeBtn.innerText = `重新获取(${countdown}s)`;
+        if (countdown <= 0) {
+          clearInterval(timer);
+          getCodeBtn.disabled = false;
+          getCodeBtn.innerText = '获取验证码';
+        }
+      }, 1000);
+    }
+
+    // 注册
+    function register() {
+      const phone = document.getElementById('phone').value;
+      const code = document.getElementById('code').value;
+      const agree = document.getElementById('agree').checked;
+
+      // 验证表单
+      if (!isMobile(phone)) {
+        return;
+      }
+      if (!code || !/^\d{6}$/.test(code)) {
+        alert('请输入6位验证码');
+        return;
+      }
+      if (!agree) {
+        alert('请阅读并同意用户协议和隐私政策');
+        return;
+      }
+
+      showLoading();
+
+      // 登录请求数据
+      const loginData = {
+        phone: phone,
+        code: code,
+        invite_code: INVITE_CODE,
+        type: 2
+      };
+
+      // 发送登录请求
+      fetch(`${API_DOMAIN}/api/v1/user/sms/login`, {
+        method: 'POST',
+        headers: {
+          'Authorization': AUTH_TOKEN,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(loginData)
+      })
+        .then(response => {
+          hideLoading();
+          if (response.ok) {
+            return response.json();
+          }
+          throw new Error('网络响应异常');
+        })
+        .then(res => {
+          if (res.code === 200) {
+            // 注册成功
+            showDownloadPopup();
+            // 保存注册成功的状态
+            saveRegistrationStatus();
+
+            // 清空表单
+            document.getElementById('phone').value = '';
+            document.getElementById('code').value = '';
+
+            // 重置验证码按钮状态
+            if (timer) {
+              clearInterval(timer);
+              const getCodeBtn = document.getElementById('getCodeBtn');
+              getCodeBtn.disabled = false;
+              getCodeBtn.innerText = '获取验证码';
+              countdown = 60;
+            }
+          } else {
+            alert(res.message || '注册失败');
+          }
+        })
+        .catch(error => {
+          hideLoading();
+          console.error('错误：', error);
+          alert('注册失败，请稍后重试');
+        });
+    }
+
+    // 保存注册成功状态
+    function saveRegistrationStatus() {
+      const now = new Date().getTime();
+      localStorage.setItem('registered', 'true');
+      localStorage.setItem('registrationTime', now);
+    }
+
+    // 检查注册状态
+    function checkRegistrationStatus() {
+      const registered = localStorage.getItem('registered');
+      const registrationTime = localStorage.getItem('registrationTime');
+      
+      if (registered === 'true') {
+        const now = new Date().getTime();
+        const timeDiff = now - parseInt(registrationTime);
+        
+        // 如果注册时间在24小时内
+        if (timeDiff < 24 * 60 * 60 * 1000) {
+          // 5秒后弹出下载窗口
+          setTimeout(() => {
+            showDownloadPopup();
+          }, 5000);
+        }
+      }
+    }
+
+    // 页面切换功能
+    function showPage(pageId) {
+      // 隐藏所有页面
+      document.querySelectorAll('.page-container').forEach(page => {
+        page.style.display = 'none';
+      });
+      document.getElementById('registerPage').style.display = 'none';
+      
+      // 显示目标页面
+      document.getElementById(pageId).style.display = 'block';
+      
+      // 更新底部菜单激活状态
+      document.querySelectorAll('.nav-item').forEach(item => {
+        item.classList.remove('active');
+      });
+      
+      // 为当前激活的菜单项添加active类
+      if (pageId === 'registerPage') {
+        document.querySelector('.nav-item:nth-child(1)').classList.add('active');
+        document.getElementById('registerPage').style.display = 'block';
+      } else if (pageId === 'scanPage') {
+        document.querySelector('.nav-item:nth-child(2)').classList.add('active');
+      } else if (pageId === 'tutorialPage') {
+        document.querySelector('.nav-item:nth-child(3)').classList.add('active');
+      } else if (pageId === 'earnPage') {
+        document.querySelector('.nav-item:nth-child(4)').classList.add('active');
+      }
+      
+      // 控制悬浮按钮显示 - 仅在注册页显示
+      const floatButtons = document.querySelector('.float-buttons');
+      if (pageId === 'registerPage') {
+        floatButtons.style.display = 'flex';
+      } else {
+        floatButtons.style.display = 'none';
+      }
+    }
+    
+    // 打开教学页面
+    function openTutorialPage() {
+      showPage('tutorialPage');
+    }
+    
+    // 打开变现大全页面
+    function openEarnPage() {
+      showPage('earnPage');
+    }
+    
+    // 关闭页面
+    function closePage(pageId) {
+      showPage('registerPage');
+    }
+
+    // 打开视频教学
+    function openVideoTutorial() {
+      document.getElementById('videoPopup').style.display = 'flex';
+      // 尝试自动播放视频（需要用户交互）
+      try {
+        document.querySelector('.video-iframe').contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+      } catch (e) {
+        console.log('自动播放失败，需要用户交互');
+      }
+    }
+    
+    // 打开安装教学网页
+    function openTutorialWeb() {
+      document.getElementById('tutorialWebPopup').style.display = 'flex';
+    }
+    
+    // 关闭安装教学网页
+    function closeTutorialWebPopup() {
+      document.getElementById('tutorialWebPopup').style.display = 'none';
+    }
+    
+    // 关闭视频教学
+    function closeVideoPopup() {
+      document.getElementById('videoPopup').style.display = 'none';
+    }
+
+    // 显示用户协议
+    function showAgreement() {
+      alert('用户协议内容');
+    }
+
+    // 显示隐私政策
+    function showPrivacy() {
+      alert('隐私政策内容');
+    }
+
+    // 显示下载APP弹窗
+    function showDownloadPopup() {
+      document.getElementById('downloadPopup').style.display = 'flex';
+    }
+
+    // 关闭下载APP弹窗
+    function closeDownloadPopup() {
+      document.getElementById('downloadPopup').style.display = 'none';
+    }
+
+    // 显示 loading 弹窗
+    function showLoading() {
+      document.getElementById('loadingPopup').style.display = 'flex';
+    }
+
+    // 隐藏 loading 弹窗
+    function hideLoading() {
+      document.getElementById('loadingPopup').style.display = 'none';
+    }
+  </script>
+</body>
+
+</html>
