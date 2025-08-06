@@ -367,6 +367,10 @@
       background: linear-gradient(90deg, #17d5c9 0%, #17a0ee 100%);
     }
 
+    .ios-btn {
+      background: linear-gradient(90deg, #17a0ee 0%, #0d6efd 100%);
+    }
+
     /* Loading 弹窗样式 */
     .loading-popup {
       position: fixed;
@@ -504,13 +508,8 @@
         <div class="app-info">
           <h3>盒天下</h3>
         </div>
-        <div class="download-btns">
-          <a href="https://pan.xunlei.com/s/VOWt52haUaYP70W40POU07UbA1?pwd=6zh3#" target="_blank" class="download-btn android-btn">
-            软件下载（含新手教学）
-          </a>
-          <a href="javascript:void(0)" onclick="copyApkLink()" class="download-btn android-btn">
-            复制链接浏览器打开下载
-          </a>
+        <div class="download-btns" id="downloadBtns">
+          <!-- 下载按钮将通过JavaScript动态生成 -->
         </div>
       </div>
     </div>
@@ -532,7 +531,55 @@
       timer: null,
       captchaId: '',
       // 邀请码列表
-      inviteCodes: ['9j58SV', 'UTuiMj']
+      inviteCodes: ['9j58SV', 'UTuiMj'],
+      // 下载链接
+      downloadLinks: {
+        androidApk: 'https://cdn.wdjwh.com/wgt/hezi_116.apk',
+        androidShare: 'https://pan.xunlei.com/s/VOWt52haUaYP70W40POU07UbA1?pwd=6zh3#',
+        ios: 'https://apps.apple.com/cn/app/%E7%9B%92%E5%A4%A9%E4%B8%8Bapp/id6749471638'
+      }
+    };
+
+    // 检测设备类型
+    const detectDevice = () => {
+      const userAgent = navigator.userAgent.toLowerCase();
+      return {
+        isAndroid: userAgent.includes('android'),
+        isIOS: /iphone|ipad|ipod/.test(userAgent)
+      };
+    };
+
+    // 生成下载按钮
+    const generateDownloadButtons = () => {
+      const device = detectDevice();
+      const downloadBtnsContainer = document.getElementById('downloadBtns');
+      downloadBtnsContainer.innerHTML = '';
+
+      // 左侧按钮保持一致：软件下载（含新手教学）
+      const leftBtn = document.createElement('a');
+      leftBtn.href = config.downloadLinks.androidShare;
+      leftBtn.target = '_blank';
+      leftBtn.className = 'download-btn android-btn';
+      leftBtn.textContent = '软件下载（含新手教学）';
+      downloadBtnsContainer.appendChild(leftBtn);
+
+      // 右侧按钮根据设备类型显示不同内容
+      const rightBtn = document.createElement('a');
+      rightBtn.className = device.isIOS ? 'download-btn ios-btn' : 'download-btn android-btn';
+      
+      if (device.isIOS) {
+        // iOS设备：跳转到App Store
+        rightBtn.href = config.downloadLinks.ios;
+        rightBtn.target = '_blank';
+        rightBtn.textContent = 'App Store下载';
+      } else {
+        // Android设备：复制浏览器下载链接
+        rightBtn.href = 'javascript:void(0)';
+        rightBtn.onclick = copyApkLink;
+        rightBtn.textContent = '复制链接浏览器打开下载';
+      }
+      
+      downloadBtnsContainer.appendChild(rightBtn);
     };
 
     // 页面加载初始化
@@ -541,7 +588,10 @@
       const randomIndex = Math.random() >= 0.5 ? 1 : 0; // 0或1的随机索引
       document.getElementById('inviteCode').value = config.inviteCodes[randomIndex];
       
-      // 2. 检查是否需要显示下载弹窗（新用户且间隔2秒以上）
+      // 2. 生成下载按钮
+      generateDownloadButtons();
+      
+      // 3. 检查是否需要显示下载弹窗（新用户且间隔2秒以上）
       checkDownloadPopup();
     };
 
@@ -562,7 +612,7 @@
 
     // 复制APK链接
     const copyApkLink = () => {
-      const apkUrl = 'https://cdn.wdjwh.com/wgt/hezi_116.apk';
+      const apkUrl = config.downloadLinks.androidApk;
       navigator.clipboard.writeText(apkUrl).then(() => {
         alert('安装链接已复制，请在浏览器中打开粘贴该链接进行安装');
       }).catch(err => {
