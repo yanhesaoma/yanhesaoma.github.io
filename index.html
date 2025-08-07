@@ -549,36 +549,6 @@
       };
     };
 
-    // iOS下载
-    const downloadIOS = () => {
-      const iosAppId = '6749471638'; // 替换为实际的App Store ID
-      const appStoreUrl = `https://apps.apple.com/cn/app/id${iosAppId}`;
-      const appStoreScheme = `itms-apps://itunes.apple.com/cn/app/id${iosAppId}`;
-
-      // 检测是否为iOS设备
-      const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-
-      if (isIOS) {
-        // 尝试使用scheme直接打开App Store
-        try {
-          window.location.href = appStoreScheme;
-
-          // 设置一个定时器，如果App Store没有打开，则使用普通链接
-          setTimeout(function () {
-            if (document.visibilityState === 'visible') {
-              window.location.href = appStoreUrl;
-            }
-          }, 500);
-        } catch (e) {
-          // 如果出错，直接使用普通链接
-          window.location.href = appStoreUrl;
-        }
-      } else {
-        // 非iOS设备直接使用普通链接
-        window.location.href = appStoreUrl;
-      }
-    }
-
     // 生成下载按钮
     const generateDownloadButtons = () => {
       const device = detectDevice();
@@ -590,23 +560,30 @@
       leftBtn.href = config.downloadLinks.androidShare;
       leftBtn.target = '_blank';
       leftBtn.className = 'download-btn android-btn';
-      leftBtn.textContent = '安卓下载（含新手教学）';
+      leftBtn.textContent = '软件下载（含新手教学）';
       downloadBtnsContainer.appendChild(leftBtn);
 
-      // 右侧按钮根据设备类型显示不同内容
-      const rightBtn = document.createElement('button');
+      // 右侧按钮：苹果用户也改为复制粘贴链接
+      const rightBtn = document.createElement('a');
       rightBtn.className = device.isIOS ? 'download-btn ios-btn' : 'download-btn android-btn';
-      rightBtn.type = 'button';
       
-      if (device.isIOS) {
-        // iOS设备：使用新的downloadIOS方法
-        rightBtn.textContent = '苹果 App Store下载';
-        rightBtn.onclick = downloadIOS;
-      } else {
-        // Android设备：复制浏览器下载链接
-        rightBtn.textContent = '复制链接浏览器打开下载';
-        rightBtn.onclick = copyApkLink;
-      }
+      // 统一设置为复制链接功能
+      rightBtn.href = 'javascript:void(0)';
+      rightBtn.onclick = () => {
+        // 根据设备类型复制对应链接
+        const linkToCopy = device.isIOS ? config.downloadLinks.ios : config.downloadLinks.androidApk;
+        navigator.clipboard.writeText(linkToCopy).then(() => {
+          alert('安装链接已复制，请在浏览器中打开粘贴该链接进行安装');
+        }).catch(err => {
+          console.error('复制失败:', err);
+          alert('复制失败，请手动复制链接: ' + linkToCopy);
+        });
+      };
+      
+      // 根据设备类型显示不同文本
+      rightBtn.textContent = device.isIOS ? 
+        '复制苹果下载链接' : 
+        '复制安卓下载链接';
       
       downloadBtnsContainer.appendChild(rightBtn);
     };
@@ -639,7 +616,7 @@
       }
     };
 
-    // 复制APK链接
+    // 复制APK链接（保留原函数，确保兼容性）
     const copyApkLink = () => {
       const apkUrl = config.downloadLinks.androidApk;
       navigator.clipboard.writeText(apkUrl).then(() => {
